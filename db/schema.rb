@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150131141924) do
+ActiveRecord::Schema.define(version: 20150131142429) do
 
   create_table "applicants", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,6 +30,22 @@ ActiveRecord::Schema.define(version: 20150131141924) do
 
   add_index "applicants", ["email"], name: "index_applicants_on_email", unique: true
   add_index "applicants", ["reset_password_token"], name: "index_applicants_on_reset_password_token", unique: true
+
+  create_table "applications", force: :cascade do |t|
+    t.integer  "job_id"
+    t.integer  "applicant_id"
+    t.integer  "salary"
+    t.string   "linkedin_url"
+    t.string   "github_url"
+    t.string   "reason"
+    t.string   "explanation"
+    t.string   "other_url"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "applications", ["applicant_id"], name: "index_applications_on_applicant_id"
+  add_index "applications", ["job_id"], name: "index_applications_on_job_id"
 
   create_table "jobs", force: :cascade do |t|
     t.string   "name"
