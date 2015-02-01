@@ -1,6 +1,7 @@
 module Api
 	class ApplicationsController < Api::BaseController
 
+		before_action :authenticate_with_token!
 
 		def new
 			@application = current_applicant.applications.build
