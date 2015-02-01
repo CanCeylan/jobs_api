@@ -2,6 +2,21 @@ module Api
 	class ApplicationsController < Api::BaseController
 
 
+		def new
+			@application = current_applicant.applications.build
+		end
+
+		def create
+			@application = current_applicant.applications.build(application_params)
+			pp "merhaba bu benim creatimmmm"
+
+			if @application.save
+				render :show, status: :created
+			else
+				render json: get_resource.errors, status: :unprocessable_entity
+			end
+		end
+
 		private
 
 		def application_params
