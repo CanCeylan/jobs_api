@@ -1,9 +1,5 @@
-json.message		"Choose your dream Job at Deriva and make sure you remember it's id..."
-
-
-
 json.application do
-	json.id				@application.id
+	json.id				"You've jsut applied #{@application.id} by asking the salary of #{@application.salary} for #{Job.find(@application.job_id).name}" 
 	json.salary			@application.salary
 	json.job   			@application.job_id
 end

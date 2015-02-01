@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150201202012) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "applicants", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -29,9 +32,9 @@ ActiveRecord::Schema.define(version: 20150201202012) do
     t.string   "auth_token",             default: ""
   end
 
-  add_index "applicants", ["auth_token"], name: "index_applicants_on_auth_token", unique: true
-  add_index "applicants", ["email"], name: "index_applicants_on_email", unique: true
-  add_index "applicants", ["reset_password_token"], name: "index_applicants_on_reset_password_token", unique: true
+  add_index "applicants", ["auth_token"], name: "index_applicants_on_auth_token", unique: true, using: :btree
+  add_index "applicants", ["email"], name: "index_applicants_on_email", unique: true, using: :btree
+  add_index "applicants", ["reset_password_token"], name: "index_applicants_on_reset_password_token", unique: true, using: :btree
 
   create_table "applications", force: :cascade do |t|
     t.integer  "job_id"
@@ -46,8 +49,8 @@ ActiveRecord::Schema.define(version: 20150201202012) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "applications", ["applicant_id"], name: "index_applications_on_applicant_id"
-  add_index "applications", ["job_id"], name: "index_applications_on_job_id"
+  add_index "applications", ["applicant_id"], name: "index_applications_on_applicant_id", using: :btree
+  add_index "applications", ["job_id"], name: "index_applications_on_job_id", using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.string   "name"
@@ -57,4 +60,6 @@ ActiveRecord::Schema.define(version: 20150201202012) do
     t.datetime "updated_at",  null: false
   end
 
+  add_foreign_key "applications", "applicants"
+  add_foreign_key "applications", "jobs"
 end

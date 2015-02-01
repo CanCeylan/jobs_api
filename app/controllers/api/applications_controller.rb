@@ -3,13 +3,16 @@ module Api
 
 		before_action :authenticate_with_token!
 
+		def index
+			@applications = current_applicant.applications
+		end
+
 		def new
 			@application = current_applicant.applications.build
 		end
 
 		def create
 			@application = current_applicant.applications.build(application_params)
-			pp "merhaba bu benim creatimmmm"
 
 			if @application.save
 				render :show, status: :created
