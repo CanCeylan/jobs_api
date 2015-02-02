@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
   devise_for :applicants, :controllers => {sessions: 'api/sessions', registrations: 'api/registrations'}  
   namespace :api do
-    resources :applications, only: [:index, :create]
-    resources :jobs, only: :index
+    #resources :applications, only: [:index, :create]
+    #resources :jobs, only: :index
   end
+
+  namespace :api do
+    get   'v1/jobs'         =>    'jobs#index'
+    get   'v1/applications' =>    'applications#index'
+    post  'v1/applications' =>    'applications#create'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
