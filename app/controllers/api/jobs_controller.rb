@@ -1,5 +1,5 @@
 module Api
-	class JobsController < Api::BaseController
+	class JobsController < ApplicationController
 
 		private
 

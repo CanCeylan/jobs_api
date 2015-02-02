@@ -1,5 +1,5 @@
 module Api
-	class ApplicationsController < Api::BaseController
+	class ApplicationsController < ApplicationController
 
 		before_action :authenticate_with_token!
 
