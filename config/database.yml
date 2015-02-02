@@ -22,4 +22,5 @@ test:
   database: db/test
 
 production:
+  <<: *default
   url: ENV['DATABASE_URL']
