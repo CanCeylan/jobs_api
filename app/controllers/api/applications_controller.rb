@@ -27,10 +27,8 @@ module Api
 			params.require(:application).permit(:job_id, 
 												:applicant_id, 
 												:salary,
-												:linkedin_url,
-												:github_url,
+												:links,
 												:reason,
-												:other_url,
 												:explanation)
 		end
 
