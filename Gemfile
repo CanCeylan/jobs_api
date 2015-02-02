@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'active_model_serializers'
 gem "devise"
 
-#Heroku hems
+#Heroku gems
 gem 'rails_12factor'
 
 # Use ActiveModel has_secure_password

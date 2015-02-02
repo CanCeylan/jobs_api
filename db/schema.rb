@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20150202081436) do
     t.integer  "salary"
     t.string   "reason"
     t.string   "explanation"
-    t.string   "urls"
+    t.string   "links"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

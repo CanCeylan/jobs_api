@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :applicants, :controllers => {sessions: 'api/sessions', registrations: 'api/registrations'}  
+  
+  devise_for :applicants, :controllers => {sessions: 'api/sessions', 
+                                           registrations: 'api/registrations'}  
+  
   namespace :api do
     #resources :applications, only: [:index, :create]
     #resources :jobs, only: :index
