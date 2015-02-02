@@ -22,7 +22,4 @@ test:
   database: db/test
 
 production:
-  <<: *default
-  database: db/production
-  username: ocan
-  password: c4nc4nc4n
+  url: ENV['DATABASE_URL']
