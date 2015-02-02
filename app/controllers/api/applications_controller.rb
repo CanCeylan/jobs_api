@@ -17,7 +17,7 @@ module Api
 			if @application.save
 				render :show, status: :created
 			else
-				render json: get_resource.errors, status: :unprocessable_entity
+				render json: @application.errors, status: :unprocessable_entity
 			end
 		end
 
