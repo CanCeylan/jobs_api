@@ -12,7 +12,7 @@ module Api
 		end
 
 		def create
-			@application = current_applicant.applications.build(application_params)
+			@application = current_applicant.applications.create(application_params)
 
 			if @application.save
 				render :show, status: :created
