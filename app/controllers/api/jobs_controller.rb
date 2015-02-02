@@ -1,6 +1,12 @@
 module Api
 	class JobsController < ApplicationController
 
+		def index
+			@jobs = Job.all
+
+			render :index
+		end
+
 		private
 
 		def job_params
