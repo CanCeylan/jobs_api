@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Job.create({name: "Full Stack Develoer", role: "Full Time"})
-Job.create({name: "Full Stack Develoer", role: "Intern"})
+Job.create({name: "Full Stack Developer", role: "Full Time"})
+Job.create({name: "Full Stack Developer", role: "Intern"})
 Job.create({name: "iOS Developer", role: "Full Time"})
 Job.create({name: "iOS Develoer", role: "Intern"})
