@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   devise_for :applicants, :controllers => {sessions: 'api/sessions', 
-                                           registrations: 'api/registrations'}  
+                                           registrations: 'api/registrations'}, defaults: { format: 'json' }#, { "Content-Type" => "application/json" }
   
   namespace :api do
     #resources :applications, only: [:index, :create]
@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    get   'v1/jobs'         =>    'jobs#index'
-    get   'v1/applications' =>    'applications#index'
-    post  'v1/applications' =>    'applications#create'
+    get   'v1/jobs'         =>    'jobs#index', defaults: { format: 'json' }
+    get   'v1/applications' =>    'applications#index', defaults: { format: 'json' }
+    post  'v1/applications' =>    'applications#create', defaults: { format: 'json' }
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,7 +1,9 @@
 module Api
 	class ApplicationsController < ApplicationController
 
+		respond_to :json
 		before_action :authenticate_with_token!
+
 
 		def index
 			@applications = current_applicant.applications
