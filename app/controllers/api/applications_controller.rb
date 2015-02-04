@@ -13,6 +13,7 @@ module Api
 
 		def create
 			@application = current_applicant.applications.create(application_params)
+			@application.links = params[:application][:links].map(&:inspect).join(', ')
 
 			if @application.save
 				render :show, status: :created
@@ -24,6 +25,7 @@ module Api
 		private
 
 		def application_params
+
 			params.require(:application).permit(:job_id, 
 												:applicant_id, 
 												:salary,
