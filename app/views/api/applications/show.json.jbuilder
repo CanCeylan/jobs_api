@@ -1,5 +1,5 @@
 json.application do
-	json.id				"You've jsut applied #{@application.id} by asking the salary of #{@application.salary} for #{Job.find(@application.job_id).name}" 
-	json.salary			@application.salary
-	json.job   			@application.job_id
+	json.congrats				"Hey there! You've just #{Job.find(@application.job_id).name}!" 
+	json.message		"If you're funny enough like doing 'Seviyosan git commit' kinds of jokes, you're more than welcome to our team!"
+	json.questions		"If you have any questions, please don't hesitate to contact us via e-mail at contact@derivalabs.com."
 end
